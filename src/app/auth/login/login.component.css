@@ -1,0 +1,24 @@
+
+.image-container{
+    display: flexbox;
+}
+
+.vision {
+    color: #001a29;
+}
+
+.vault {
+    color: #df930a;
+}
+
+.required {
+    color: #ce3600;
+}
+
+.login-btn {
+    background-color: #001a29;
+}
+
+.link-btn {
+    color: #ce3600;
+}
