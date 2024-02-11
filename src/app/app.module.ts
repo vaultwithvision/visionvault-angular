@@ -7,6 +7,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
 // import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -15,12 +17,13 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     SignupComponent,
     LoginComponent,
     VerifyEmailComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LandingPageComponent,
+    TopNavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

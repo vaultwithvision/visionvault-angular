@@ -1,0 +1,19 @@
+.top-navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.vision {
+    color: #001a29;
+}
+
+.vault {
+    color: #df930a;
+}
+
+.vv-btn1 {
+    background-color: #001a29;
+}
+
+.vv-btn2 {
+    background-color: #df930a;
+}
