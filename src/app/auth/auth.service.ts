@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+import { CookieService } from './cookie.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  BASE_API_URL="http://localhost:3000/api/v1"
+  BASE_API_URL="http://localhost:3000/api/v1/auth"
 
-  constructor( private http: HttpClient, private router: Router ) {  }
+  constructor( public cookieService: CookieService, private http: HttpClient, private router: Router ) {  }
 
   // auth service to register new user
   registerUser(
@@ -90,10 +91,12 @@ export class AuthService {
       {
         next: (responseData) => {
           if (responseData) {
-            localStorage.setItem("accessToken", responseData.accessToken);
-            localStorage.setItem("refreshToken", responseData.refreshToken);
+            // localStorage.setItem("accessToken", responseData.accessToken);
+            // localStorage.setItem("refreshToken", responseData.refreshToken);
+            this.cookieService.setCookie("accessToken", responseData.accessToken);
+            this.cookieService.setCookie("refreshToken", responseData.refreshToken);
   
-            this.router.navigate(["/home"]);
+            this.router.navigate(["/"]);
           }
         },
         error: (error) => {
