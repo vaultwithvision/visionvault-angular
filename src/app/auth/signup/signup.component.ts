@@ -28,8 +28,6 @@ export class SignupComponent implements OnInit{
       "coverImage": new FormControl(null, { validators: [Validators.required]}),
     });
 
-
-
   }
 
   onFileChangeProfilePic(fileEvent: Event) {

@@ -81,6 +81,27 @@ export class AuthService {
     email: string,
     password: string
   ) {
+    const userData = { email, password };
+
+    this.http.post<{user: any, accessToken: string, refreshToken: string}>(
+      `${this.BASE_API_URL}/user/login`,
+      userData
+    ).subscribe(
+      {
+        next: (responseData) => {
+          if (responseData) {
+            localStorage.setItem("accessToken", responseData.accessToken);
+            localStorage.setItem("refreshToken", responseData.refreshToken);
+  
+            this.router.navigate(["/home"]);
+          }
+        },
+        error: (error) => {
+          console.log(error);
+          alert("Login failed! Please check your credentials and try again.");
+        }
+      }
+    );
 
   };
 
