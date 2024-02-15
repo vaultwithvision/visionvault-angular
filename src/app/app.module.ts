@@ -11,6 +11,9 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
+import { PersonalInfoComponent } from './auth/signup/personal-info/personal-info.component';
+import { PersonalSettingsComponent } from './auth/signup/personal-settings/personal-settings.component';
+import { PersonalUploadComponent } from './auth/signup/personal-upload/personal-upload.component';
 // import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -21,7 +24,10 @@ import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
     VerifyEmailComponent,
     ForgotPasswordComponent,
     LandingPageComponent,
-    TopNavbarComponent
+    TopNavbarComponent,
+    PersonalInfoComponent,
+    PersonalSettingsComponent,
+    PersonalUploadComponent
   ],
   imports: [
     BrowserModule,
