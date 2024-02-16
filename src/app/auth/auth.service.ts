@@ -12,6 +12,13 @@ export class AuthService {
 
   constructor( public cookieService: CookieService, private http: HttpClient, private router: Router ) {  }
 
+
+  // method to store the tokens in the browser
+  private storeTokens(accessToken: string, refreshToken: string): void {
+    this.cookieService.setCookie("accessToken", accessToken);
+    this.cookieService.setCookie("refreshToken", refreshToken);
+  }
+
   // auth service to register new user
   registerUser(
     username: string,
@@ -91,11 +98,7 @@ export class AuthService {
       {
         next: (responseData) => {
           if (responseData) {
-            // localStorage.setItem("accessToken", responseData.accessToken);
-            // localStorage.setItem("refreshToken", responseData.refreshToken);
-            this.cookieService.setCookie("accessToken", responseData.accessToken);
-            this.cookieService.setCookie("refreshToken", responseData.refreshToken);
-  
+            this.storeTokens(responseData.accessToken, responseData.refreshToken);
             this.router.navigate(["/"]);
           }
         },
@@ -115,6 +118,14 @@ export class AuthService {
   forgotPassword() {}
 
   // auth service to get user details
-  getUserDetails() {}
+  getUserDetails() {
+    this.http.get<any>(
+      `${this.BASE_API_URL}//user/profile-detais`
+    ).subscribe(
+      (responseData) => {
+        console.log(responseData);
+      }
+    )
+  }
   
 }

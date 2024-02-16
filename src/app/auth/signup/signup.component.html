@@ -1,17 +1,67 @@
-<ng-container [ngSwitch]="currentStep | async">
-  <app-personal-info
-    *ngSwitchCase="'personalInfos'"
-    [startingForm]="userForm.get('personalInfos')?.value"
-    (formInitializer)="formInitializer('personalInfos', $event)"
-  ></app-personal-info>
-  <app-personal-upload
-    *ngSwitchCase="'personalUploads'"
-    [startingForm]="userForm.get('personalUploads')?.value"
-    (formInitializer)="formInitializer('personalUploads', $event)"
-  ></app-personal-upload>
-  <app-personal-settings
-    *ngSwitchCase="'personalSettings'"
-    [startingForm]="userForm.get('personalSettings')?.value"
-    (formInitializer)="formInitializer('personalSettings', $event)"
-  ></app-personal-settings>
-</ng-container>
+<div class="login-container border-b-0">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="md:hidden">
+      <img src="../../../assets/images/VisionVault.jpeg" alt="">
+    </div>
+    <div class="hidden md:block">
+      <img src="../../../assets/images/VisionVault.jpeg" alt="">
+    </div>
+      <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
+          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+              <!-- <img class="mx-auto h-10 w-auto" src="../../../assets/images/login.png" alt="Your Company"> -->
+              <h1 class="text-center text-3xl font-bold leading-9 tracking-tight"><span class="vision">VISION</span><span class="vault">VAULT</span></h1>
+              <h2 class="mt-7 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">SignUp Now</h2>
+          </div>
+
+          <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+
+            <ol class="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+              <li class="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                  <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                      <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                      </svg>
+                      <a routerLink="/personal-infos">Personal <span class="hidden sm:inline-flex sm:ms-2">Infos</span></a>
+                  </span>
+              </li>
+              <li class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                  <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                      <span class="me-2">2</span>
+                      <a routerLink="/personal-uploads">Personal <span class="hidden sm:inline-flex sm:ms-2">Uploads</span></a>
+                  </span>
+              </li>
+              <li class="flex items-center">
+                  <span class="me-2">3</span>
+                  <a routerLink="/personal-settings">Personal <span class="hidden sm:inline-flex sm:ms-2">Settings</span></a>
+              </li>
+            </ol>
+
+            <ng-container [ngSwitch]="currentStep | async">
+              <app-personal-info
+                *ngSwitchCase="'personalInfos'"
+                [startingForm]="userForm.get('personalInfos')?.value"
+                (formInitializer)="formInitializer('personalInfos', $event)"
+              ></app-personal-info>
+              <app-personal-upload
+                *ngSwitchCase="'personalUploads'"
+                [startingForm]="userForm.get('personalUploads')?.value"
+                (formInitializer)="formInitializer('personalUploads', $event)"
+              ></app-personal-upload>
+              <app-personal-settings
+                *ngSwitchCase="'personalSettings'"
+                [startingForm]="userForm.get('personalSettings')?.value"
+                (formInitializer)="formInitializer('personalSettings', $event)"
+              ></app-personal-settings>
+            </ng-container>
+
+              <p class="mt-10 text-center text-sm text-gray-500">
+                  Already a member?
+                  <a routerLink="/login" class=".link-btn font-semibold leading-6 text-indigo-600 hover:text-indigo-500">LogIn</a>
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

@@ -14,6 +14,7 @@ import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
 import { PersonalInfoComponent } from './auth/signup/personal-info/personal-info.component';
 import { PersonalSettingsComponent } from './auth/signup/personal-settings/personal-settings.component';
 import { PersonalUploadComponent } from './auth/signup/personal-upload/personal-upload.component';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 // import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PersonalUploadComponent } from './auth/signup/personal-upload/personal-
     TopNavbarComponent,
     PersonalInfoComponent,
     PersonalSettingsComponent,
-    PersonalUploadComponent
+    PersonalUploadComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
