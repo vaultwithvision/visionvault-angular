@@ -91,14 +91,14 @@ export class AuthService {
   ) {
     const userData = { email, password };
 
-    this.http.post<{user: any, accessToken: string, refreshToken: string}>(
+    this.http.post<{data: {user: any, accessToken: string, refreshToken: string}}>(
       `${this.BASE_API_URL}/user/login`,
       userData
     ).subscribe(
       {
         next: (responseData) => {
           if (responseData) {
-            this.storeTokens(responseData.accessToken, responseData.refreshToken);
+            this.storeTokens(responseData.data.accessToken, responseData.data.refreshToken);
             this.router.navigate(["/"]);
           }
         },
